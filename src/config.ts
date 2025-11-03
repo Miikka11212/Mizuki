@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
 
 	// 特色页面开关配置(关闭不在使用的页面有助于提升SEO,关闭后直接在顶部导航删除对应的页面就行)
 	featurePages: {
-		anime: true, // 番剧页面开关
+		anime: false, // 番剧页面开关
 		diary: true, // 日记页面开关
 		friends: true, // 友链页面开关
 		projects: true, // 项目页面开关
@@ -77,14 +77,15 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"/assets/desktop-banner/d1.webp",
-				"/assets/desktop-banner/d2.webp",
-				"/assets/desktop-banner/d3.webp",
-				"/assets/desktop-banner/d4.webp",
-				"/assets/desktop-banner/d5.webp",
-				"/assets/desktop-banner/d6.webp",
-				"/assets/desktop-banner/d7.webp",
-				"/assets/desktop-banner/d8.webp",
+				"/assets/desktop-banner/a1.webp",
+				"/assets/desktop-banner/a2.webp",
+				"/assets/desktop-banner/a3.webp",
+
+				//			"/assets/desktop-banner/d4.webp",
+				//			"/assets/desktop-banner/d5.webp",
+				//			"/assets/desktop-banner/d6.webp",
+				//			"/assets/desktop-banner/d7.webp",
+				//			"/assets/desktop-banner/d8.webp",
 			], // 桌面横幅图片
 			mobile: [
 				"/assets/mobile-banner/m1.webp",
@@ -103,11 +104,11 @@ export const siteConfig: SiteConfig = {
 		carousel: {
 			enable: true, // 为 true 时：为多张图片启用轮播。为 false 时：从数组中随机显示一张图片
 
-			interval: 1.5, // 轮播间隔时间（秒）
+			interval: 3, // 轮播间隔时间（秒）
 		},
 
 		waves: {
-			enable: true, // 是否启用水波纹效果(这个功能比较吃性能)
+			enable: false, // 是否启用水波纹效果(这个功能比较吃性能)
 			performanceMode: false, // 性能模式：减少动画复杂度(性能提升40%)
 			mobileDisable: false, // 移动端禁用
 		},

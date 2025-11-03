@@ -44,7 +44,7 @@ export const siteConfig: SiteConfig = {
 	// 顶栏标题配置
 	navbarTitle: {
 		// 顶栏标题文本
-		text: "MizukiUI",
+		text: "Miikka",
 		// 顶栏标题图标路径，默认使用 public/assets/home/home.png
 		icon: "assets/home/home.png",
 	},
@@ -77,9 +77,9 @@ export const siteConfig: SiteConfig = {
 		// 支持单张图片或图片数组，当数组长度 > 1 时自动启用轮播
 		src: {
 			desktop: [
-				"/assets/desktop-banner/a1.webp",
-				"/assets/desktop-banner/a2.webp",
-				"/assets/desktop-banner/a3.webp",
+				"/assets/desktop-banner/a1.jpg",
+				"/assets/desktop-banner/a2.jpg",
+				"/assets/desktop-banner/a3.jpg",
 
 				//			"/assets/desktop-banner/d4.webp",
 				//			"/assets/desktop-banner/d5.webp",

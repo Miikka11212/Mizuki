@@ -32,7 +32,7 @@ export const siteConfig: SiteConfig = {
 
 	// 特色页面开关配置(关闭不在使用的页面有助于提升SEO,关闭后直接在顶部导航删除对应的页面就行)
 	featurePages: {
-		anime: false, // 番剧页面开关
+		anime: true, // 番剧页面开关
 		diary: true, // 日记页面开关
 		friends: true, // 友链页面开关
 		projects: true, // 项目页面开关
@@ -54,7 +54,7 @@ export const siteConfig: SiteConfig = {
 	},
 
 	anime: {
-		mode: "local", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
+		mode: "bangumi", // 番剧页面模式："bangumi" 使用Bangumi API，"local" 使用本地配置
 	},
 
 	// 文章列表布局配置
@@ -80,12 +80,15 @@ export const siteConfig: SiteConfig = {
 				"/assets/desktop-banner/a1.jpg",
 				"/assets/desktop-banner/a2.jpg",
 				"/assets/desktop-banner/a3.jpg",
+				"/assets/desktop-banner/d1.webp",
+				"/assets/desktop-banner/d2.webp",
+				"/assets/desktop-banner/d3.webp",
 
-				//			"/assets/desktop-banner/d4.webp",
-				//			"/assets/desktop-banner/d5.webp",
-				//			"/assets/desktop-banner/d6.webp",
-				//			"/assets/desktop-banner/d7.webp",
-				//			"/assets/desktop-banner/d8.webp",
+				//"/assets/desktop-banner/d4.webp",
+				//"/assets/desktop-banner/d5.webp",
+				//"/assets/desktop-banner/d6.webp",
+				//"/assets/desktop-banner/d7.webp",
+				//"/assets/desktop-banner/d8.webp",
 			], // 桌面横幅图片
 			mobile: [
 				"/assets/mobile-banner/m1.webp",
@@ -124,13 +127,13 @@ export const siteConfig: SiteConfig = {
 
 		homeText: {
 			enable: true, // 在主页显示自定义文本
-			title: "Beautiful Mizuki!", // 主页横幅主标题
+			title: "Miikka's Archive", // 主页横幅主标题
 
 			subtitle: [
-				"A Showcase Demo Site",
-				"Carousel Highlight: Innovation",
-				"Carousel Focus: User Experience",
-				"Carousel Spot: Core Advantages",
+				"Checkout my projects",
+				//"Carousel Highlight: Innovation",
+				//"Carousel Focus: User Experience",
+				//"Carousel Spot: Core Advantages",
 			],
 			typewriter: {
 				enable: true, // 启用副标题打字机效果
@@ -230,21 +233,27 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/matsuzaka-yuki/Mizuki",
+					url: "https://github.com/Miikka11212",
 					external: true,
 					icon: "fa6-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/297144550",
 					external: true,
 					icon: "fa6-brands:bilibili",
 				},
 				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					name: "Youtube",
+					url: "https://www.youtube.com/@miikka11212",
 					external: true,
-					icon: "mdi:git",
+					icon: "fa6-brands:youtube",
+				},
+				{
+					name: "Steam",
+					url: "https://steamcommunity.com/profiles/76561198358158601/",
+					external: true,
+					icon: "fa6-brands:steam",
 				},
 			],
 		},

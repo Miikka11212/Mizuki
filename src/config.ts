@@ -130,7 +130,7 @@ export const siteConfig: SiteConfig = {
 			title: "Miikka's Archive", // 主页横幅主标题
 
 			subtitle: [
-				"Checkout my projects",
+				"Welcome to SAO",
 				//"Carousel Highlight: Innovation",
 				//"Carousel Focus: User Experience",
 				//"Carousel Spot: Core Advantages",
@@ -303,38 +303,38 @@ export const navBarConfig: NavBarConfig = {
 };
 
 export const profileConfig: ProfileConfig = {
-	avatar: "assets/images/avatar.webp", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
-	name: "Matsuzaka Yuki",
-	bio: "The world is big, you have to go and see",
+	avatar: "assets/images/avatar.jpg", // 相对于 /src 目录。如果以 '/' 开头，则相对于 /public 目录
+	name: "Miikka",
+	bio: "Welcome to my personal website. Check out my articles, projects, and photography works.",
 	typewriter: {
-		enable: true, // 启用个人简介打字机效果
+		enable: false, // 启用个人简介打字机效果
 		speed: 80, // 打字速度（毫秒）
 	},
 	links: [
 		{
 			name: "Bilibli",
 			icon: "fa6-brands:bilibili",
-			url: "https://space.bilibili.com/701864046",
+			url: "https://space.bilibili.com/297144550",
 		},
 		{
-			name: "Gitee",
-			icon: "mdi:git",
-			url: "https://gitee.com/matsuzakayuki",
+			name: "Steam",
+			icon: "fa6-brands:steam",
+			url: "https://steamcommunity.com/profiles/76561198358158601/",
 		},
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github",
-			url: "https://github.com/matsuzaka-yuki",
+			url: "https://github.com/Miikka11212",
 		},
 		{
-			name: "Codeberg",
-			icon: "simple-icons:codeberg",
-			url: "https://codeberg.org",
+			name: "Twitch",
+			icon: "fa6-brands:twitch",
+			url: "https://www.twitch.tv/miikkalillia",
 		},
 		{
 			name: "Discord",
 			icon: "fa6-brands:discord",
-			url: "https://discord.gg/MqW6TcQtVM",
+			url: "https://discord.gg/Zd4BV6bnyF",
 		},
 	],
 };
@@ -361,7 +361,8 @@ export const commentConfig: CommentConfig = {
 
 export const announcementConfig: AnnouncementConfig = {
 	title: "Announcement", // 公告标题
-	content: "Welcome to my blog! This is a sample announcement.", // 公告内容
+	content:
+		"Welcome to my blog! I will keep this updated and write new articles!", // 公告内容
 	closable: true, // 允许用户关闭公告
 	link: {
 		enable: true, // 启用链接
@@ -497,7 +498,7 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 };
 
 export const sakuraConfig: SakuraConfig = {
-	enable: false, // 默认关闭樱花特效
+	enable: true, // 默认关闭樱花特效
 	sakuraNum: 21, // 樱花数量
 	limitTimes: -1, // 樱花越界限制次数，-1为无限循环
 	size: {
@@ -510,14 +511,14 @@ export const sakuraConfig: SakuraConfig = {
 	},
 	speed: {
 		horizontal: {
-			min: -1.7, // 水平移动速度最小值
-			max: -1.2, // 水平移动速度最大值
+			min: -0.9, // 水平移动速度最小值
+			max: -0.4, // 水平移动速度最大值
 		},
 		vertical: {
-			min: 1.5, // 垂直移动速度最小值
-			max: 2.2, // 垂直移动速度最大值
+			min: 0.2, // 垂直移动速度最小值
+			max: 0.7, // 垂直移动速度最大值
 		},
-		rotation: 0.03, // 旋转速度
+		rotation: 0.009, // 旋转速度
 		fadeSpeed: 0.03, // 消失速度，不应大于最小不透明度
 	},
 	zIndex: 100, // 层级，确保樱花在合适的层级显示
@@ -533,7 +534,7 @@ export const pioConfig: import("./types/config").PioConfig = {
 	mode: "draggable", // 默认为可拖拽模式
 	hiddenOnMobile: true, // 默认在移动设备上隐藏
 	dialog: {
-		welcome: "Welcome to Mizuki Website!", // 欢迎词
+		welcome: "Welcome to Miikka's Website!", // 欢迎词
 		touch: [
 			"What are you doing?",
 			"Stop touching me!",

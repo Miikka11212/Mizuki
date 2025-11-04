@@ -247,7 +247,7 @@ function handleLoadSuccess() {
 	}
 }
 
-function handleLoadError(event: Event) {
+function handleLoadError(_event: Event) {
 	isLoading = false;
 	showErrorMessage(`无法播放 "${currentSong.title}"，正在尝试下一首...`);
 	if (playlist.length > 1) setTimeout(() => nextSong(), 1000);
@@ -326,7 +326,7 @@ function handleAudioEvents() {
 			isPlaying = false;
 		}
 	});
-	audio.addEventListener("error", (event) => {
+	audio.addEventListener("error", (_event) => {
 		isLoading = false;
 	});
 	audio.addEventListener("stalled", () => {});

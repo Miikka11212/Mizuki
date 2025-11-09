@@ -2,7 +2,7 @@
 title: About Me
 published: 2025-11-05
 pinned: true
-description: A simple example of a Markdown blog post.
+description: Some info about this site and ME!
 tags: [Markdown, Blogging]
 category: Articles
 licenseName: "Unlicensed"

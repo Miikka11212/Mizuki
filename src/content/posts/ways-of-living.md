@@ -3,7 +3,7 @@ title: Ways of Living-Ethics Across Classical Philosophies
 published: 2025-04-16
 pinned: false
 description: An explanatory and discussive essay on ethics, epistemology, and metaphysics.
-tags: [Philosophy, Essays]
+tags: [Philosophy, Essay]
 category: Articles
 licenseName: "Unlicensed"
 author: Oscar Wang

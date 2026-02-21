@@ -3,7 +3,7 @@ title: What Does Plato, Socrates, and Aristotle Believe in Ethics?
 published: 2025-01-23
 pinned: false
 description: What is ethics in philosophy? What do Greek philosophers believe?
-tags: [Philosophy, Essay]
+tags: [Philosophy, Literature, Essay]
 category: Articles
 licenseName: "Unlicensed"
 author: Oscar Wang

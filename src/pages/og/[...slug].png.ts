@@ -5,6 +5,9 @@ import type { APIContext, GetStaticPaths } from "astro";
 import satori from "satori";
 import sharp from "sharp";
 
+import { getPostPublicDescription } from "@/utils/post-card-content";
+import { removeFileExtension } from "@/utils/url-utils";
+
 import { profileConfig, siteConfig } from "../../config";
 
 type Weight = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
@@ -26,10 +29,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	const allPosts = await getCollection("posts");
 	const publishedPosts = allPosts.filter((post) => !post.data.draft);
 
-	return publishedPosts.map((post) => ({
-		params: { slug: post.slug },
-		props: { post },
-	}));
+	return publishedPosts.map((post) => {
+		// 将 id 转换为 slug（移除扩展名）以匹配路由参数
+		const slug = removeFileExtension(post.id);
+		return {
+			params: { slug },
+			props: { post },
+		};
+	});
 };
 
 let fontCache: { regular: Buffer | null; bold: Buffer | null } | null = null;
@@ -43,7 +50,9 @@ async function fetchNotoSansSCFonts() {
 		const cssResp = await fetch(
 			"https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700&display=swap",
 		);
-		if (!cssResp.ok) throw new Error("Failed to fetch Google Fonts CSS");
+		if (!cssResp.ok) {
+			throw new Error("Failed to fetch Google Fonts CSS");
+		}
 		const cssText = await cssResp.text();
 
 		const getUrlForWeight = (weight: number) => {
@@ -52,7 +61,9 @@ async function fetchNotoSansSCFonts() {
 				"g",
 			);
 			const match = cssText.match(blockRe);
-			if (!match || match.length === 0) return null;
+			if (!match || match.length === 0) {
+				return null;
+			}
 			const urlMatch = match[0].match(/url\((https:[^)]+)\)/);
 			return urlMatch ? urlMatch[1] : null;
 		};
@@ -104,7 +115,7 @@ export async function GET({
 	const avatarBuffer = fs.readFileSync(`./src/${profileConfig.avatar}`);
 	const avatarBase64 = `data:image/png;base64,${avatarBuffer.toString("base64")}`;
 
-	let iconPath = "./public/favicon/favicon-dark-192.png";
+	let iconPath = "./public/favicon/favicon.ico";
 	if (siteConfig.favicon.length > 0) {
 		iconPath = `./public${siteConfig.favicon[0].src}`;
 	}
@@ -124,7 +135,7 @@ export async function GET({
 		day: "numeric",
 	});
 
-	const description = post.data.description;
+	const description = getPostPublicDescription(post.data);
 
 	const template = {
 		type: "div",
@@ -293,7 +304,10 @@ export async function GET({
 							{
 								type: "div",
 								props: {
-									style: { fontSize: "28px", color: subtleTextColor },
+									style: {
+										fontSize: "28px",
+										color: subtleTextColor,
+									},
 									children: pubDate,
 								},
 							},

@@ -132,6 +132,8 @@ export const navBarConfig: NavBarConfig = {
 		LinkPreset.Home,
 		// 预设链接：归档
 		LinkPreset.Archive,
+		// 摄影相册
+		LinkPreset.Albums,
 
 		// 自定义一级下拉菜单示例：外部链接集合
 		{
@@ -182,17 +184,7 @@ export const navBarConfig: NavBarConfig = {
 					url: "/diary/",
 					icon: "material-symbols:book",
 				},
-				{
-					name: "Gallery",
-					url: "/albums/",
-					icon: "material-symbols:photo-library",
-				},
-				{
-					name: "Devices",
-					url: "/devices/",
-					icon: "material-symbols:devices",
-					external: false, // 内部链接，当前页导航
-				},
+				
 			],
 		},
 

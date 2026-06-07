@@ -27,16 +27,16 @@ export const fullscreenWallpaperConfig: FullscreenWallpaperConfig = {
 	position: "center",
 	carousel: {
 		enable: true,
-		interval: 1,
+		interval: 8,
 	},
 	zIndex: -1,
 	opacity: 0.8,
 	blur: 1,
 	switchable: true,
 	overlay: {
-		opacity: 0.8, // 壁纸不透明度，0-1
-		blur: 1.5, // 背景模糊半径（px）
-		cardOpacity: 0.8, // 卡片不透明度，0-1
+		opacity: 0.45, // 壁纸不透明度，0-1
+		blur: 2.5, // 背景模糊半径（px）
+		cardOpacity: 0.92, // 卡片不透明度，0-1
 		switchable: {
 			opacity: true,
 			blur: true,

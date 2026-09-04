@@ -6,7 +6,7 @@ description: Some info about this site and ME!
 tags: [Markdown, Blogging]
 category: Articles
 licenseName: "Unlicensed"
-author: Oscar Wang
+author: Miikka
 draft: false
 ---
 

@@ -1,4 +1,6 @@
 ---
+import LegacyWallpaper from "@components/organisms/LegacyWallpaper.astro";
+import Live2D from "@components/organisms/Live2D.astro";
 import { Font } from "astro:assets";
 import Snackbar from "@components/atoms/overlay/Snackbar.svelte";
 import ConfigCarrier from "@components/system/ConfigCarrier.astro";
@@ -233,6 +235,8 @@ const defaultSchemeStyle = createDefaultSchemeStyle();
 		data-banner-has-mobile={String(hasMobileBanner)}
 	>
 		<ConfigCarrier></ConfigCarrier>
+		<LegacyWallpaper />
+		<Live2D />
 		{umamiOptions && <UmamiRuntime />}
 		{textureEnabled && (
 			<div

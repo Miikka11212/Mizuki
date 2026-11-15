@@ -50,7 +50,7 @@ export const llmsConfig: LlmsConfig = withUserConfig("llms", {
 	 * - true (默认): 构建期自动在 dist/ 输出纯文本 Markdown 文件；
 	 * - false: 彻底禁用此功能，访问返回 404，不产生任何构建文件。
 	 */
-	enable: true,
+	enable: false,
 
 	/**
 	 * 是否同时生成包含全站公开文章完整正文的 /llms-full.txt 文件

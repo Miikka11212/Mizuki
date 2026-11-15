@@ -141,26 +141,65 @@ const defaultNavBarConfig: NavBarConfig = {
 	links: [
 		LinkPresets.Home,
 		LinkPresets.Archive,
-		LinkPresets.Friends,
-		LinkPresets.Moments,
-		LinkPresets.Anime,
-		LinkPresets.Compass,
 		LinkPresets.Albums,
+
 		{
-			name: i18n(I18nKey.more),
-			icon: "material-symbols:apps-rounded",
+			name: "Links",
+			icon: "material-symbols:link-rounded",
 			children: [
-				LinkPresets.Timeline,
-				LinkPresets.Projects,
-				LinkPresets.Devices,
-				LinkPresets.Games,
-				LinkPresets.Skills,
-				// 分类/标签入口不进导航菜单（避免菜单项过多），预设已登记指向独立页面，
-				// 需要时取消注释即可
-				// LinkPresets.Categories,
-				// LinkPresets.Tags,
-				LinkPresets.About,
-				LinkPresets.GitHub,
+				{
+					name: "GitHub",
+					url: "https://github.com/Miikka11212",
+					external: true, // 外部链接，新标签页打开
+					icon: "fa7-brands:github",
+				},
+				{
+					name: "Bilibili",
+					url: "https://space.bilibili.com/297144550",
+					external: true,
+					icon: "fa7-brands:bilibili",
+				},
+				{
+					name: "Youtube",
+					url: "https://www.youtube.com/@miikka11212",
+					external: true,
+					icon: "fa7-brands:youtube",
+				},
+				{
+					name: "Steam",
+					url: "https://steamcommunity.com/profiles/76561198358158601/",
+					external: true,
+					icon: "fa7-brands:steam",
+				},
+			],
+		},
+
+		{
+			name: "My",
+			icon: "material-symbols:person",
+			children: [
+				{
+					name: "Anime",
+					url: "/anime/",
+					icon: "material-symbols:movie",
+				},
+			],
+		},
+
+		{
+			name: "About",
+			icon: "material-symbols:info",
+			children: [
+				{
+					name: "About",
+					url: "/about/",
+					icon: "material-symbols:person",
+				},
+				{
+					name: "Friends",
+					url: "/friends/",
+					icon: "material-symbols:group",
+				},
 			],
 		},
 	],

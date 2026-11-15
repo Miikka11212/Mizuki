@@ -194,3 +194,13 @@ html.motion-reduced *::after {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
 }
+
+/* Preserve the original size of images embedded in blog posts. */
+.custom-md > p > img,
+.custom-md > p > picture > img {
+	max-width: min(420px, 100%);
+	width: 100%;
+	height: auto;
+	margin-inline: auto;
+	display: block;
+}

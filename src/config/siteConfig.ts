@@ -10,13 +10,13 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * 类型见 src/types/config.ts。
  */
 export const siteConfig: SiteConfig = withUserConfig("site", {
-	site: "https://shirone.mysqil.com/",
-	base: "/",
-	title: "Shirone",
-	subtitle: "A Material 3 anime blog",
+	site: "https://Miikka11212.github.io/Mizuki/",
+	base: "/Mizuki",
+	title: "Miikka's Archive",
+	subtitle: "Welcome to Miikka's Archive",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
 	topAppBar: {
-		contentAlign: "center",
+		contentAlign: "left",
 	},
 	// 显示设置面板控制：配置各项前端切换项的可见性（默认全部开启）。
 	displaySettings: {
@@ -29,12 +29,12 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	},
 	lang: "en", // Language code, e.g. 'en', 'zh_CN', 'ja', etc.
 	// IANA time zone for precise post and moment timestamps. It is independent of lang.
-	timeZone: "Asia/Shanghai",
+	timeZone: "America/Toronto",
 	themeColor: {
-		hue: 315, // Default hue 0-360. 站点设计默认粉紫（偏二次元）；262 紫 / 345 粉 也可选
-		fixed: false, // Hide the theme color picker for visitors
+		hue: 205, // Default hue 0-360. 站点设计默认粉紫（偏二次元）；262 紫 / 345 粉 也可选
+		fixed: true, // Hide the theme color picker for visitors
 		// Dynamic Material 3 palette style (TonalSpot/Vibrant/Content/Expressive/Rainbow/FruitSalad/Monochrome/Neutral/Fidelity)
-		style: "tonalSpot",
+		style: "neutral",
 		// Design spec version: "2021" (MD3) or "2025" (M3 Expressive)。角色集一致，
 		// 差异仅在调色板派生（库的 colorSpec 静态为 2025 委托）
 		spec: "2025",
@@ -46,7 +46,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	},
 	// 页面背景纹理系统配置（5 大精美预设 + 零开销 HCT 动态取色）
 	texture: {
-		enable: true, // 是否启用背景纹理系统
+		enable: false, // 是否启用背景纹理系统
 		defaultPreset: "starlight", // 默认纹理预设："none" | "starlight" | "cyber-dots" | "topography" | "geometric" | "sakura"
 		defaultOpacity: 0.12, // 默认纹理浓度 (0.05 ~ 0.25)
 		allowMotion: true, // 是否允许背景微动效（开启 reduced-motion 时自动静止）
@@ -57,8 +57,24 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		// desktop 用于 >= 1024px；mobile 仅用于 < 1024px 的首页，手机非首页不显示壁纸。
 		// 数组顺序就是轮播顺序；只需要静态 Banner 时，每组保留一张图片即可。
 		src: {
-			desktop: ["assets/images/banner/desktop/1.webp"],
-			mobile: ["assets/images/banner/mobile/1.webp"],
+			desktop: [
+				"/assets/desktop-banner/a1.jpg",
+				"/assets/desktop-banner/a2.jpg",
+				"/assets/desktop-banner/a3.jpg",
+				"/assets/desktop-banner/d1.webp",
+				"/assets/desktop-banner/d2.webp",
+				"/assets/desktop-banner/d3.webp",
+			],
+			mobile: [
+				"/assets/mobile-banner/m1.webp",
+				"/assets/mobile-banner/m2.webp",
+				"/assets/mobile-banner/m3.webp",
+				"/assets/mobile-banner/m4.webp",
+				"/assets/mobile-banner/m5.webp",
+				"/assets/mobile-banner/m6.webp",
+				"/assets/mobile-banner/m7.webp",
+				"/assets/mobile-banner/m8.webp",
+			],
 		},
 		// 图片裁切焦点："top"、"center" 或 "bottom"。
 		position: "center",
@@ -70,17 +86,11 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		homeText: {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
 			enable: true,
-			title: "Shirone",
-			subtitle: [
-				"特別なことはないけど、君がいると十分です",
-				"今でもあなたは私の光",
-				"君ってさ、知らないうちに私の毎日になってたよ",
-				"君と話すと、なんか毎日がちょっと楽しくなるんだ",
-				"今日はなんでもない日。でも、ちょっとだけいい日",
-			],
+			title: "Miikka's Archive",
+			subtitle: ["Notes, projects, and records from the everyday."],
 			typewriter: {
 				// 副标题逐字显示；关闭后直接显示完整副标题。
-				enable: true,
+				enable: false,
 				// 打字速度（每个字符间隔，毫秒）。
 				speed: 100,
 				// 回退反向删除速度（每个字符间隔，毫秒）。
@@ -95,15 +105,14 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 			// 是否开启多张图片自动轮播；多张图片时生效，单张图片时自动降级为静态展示。
 			enable: true,
 			// 轮播切换间隔时间（毫秒），运行时最小值限制为 3000ms。
-			interval: 6000,
+			interval: 3000,
 			// 交叉淡入淡出（Crossfade）过渡时长（毫秒，默认 1200ms）。
 			fadeDuration: 1200,
 			// 运镜呼吸动画模式："ken-burns"（默认，循环运镜）| "zoom-in"（推进）| "zoom-out"（拉远）| "pan-left"（左移）| "pan-right"（右移）| "none"（无运镜）。
-			animation: "ken-burns",
+			animation: "none",
 		},
 		waves: {
-			// 在 Banner 底部渲染页面背景色水波纹；关闭后不输出波浪 DOM。
-			enable: true,
+			enable: false,
 		},
 	},
 	// Markdown 正文图片处理；仅匹配远程图片，不会产生额外网络请求或客户端代码。
@@ -113,15 +122,15 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	},
 	toc: {
 		enable: true, // Display the table of contents on the right side of the post
-		depth: 2, // Maximum heading depth to show in the table, from 1 to 3
+		depth: 3, // Maximum heading depth to show in the table, from 1 to 3
 	},
 	progressIndicator: {
 		// 进度条预设样式：dual 双向扫描（官方默认双线）/ single 单向扫描（单线）
-		style: "dual",
+		style: "single",
 	},
 	favicon: [
 		// 浏览器标签页图标，路径相对于 public 目录。
-		{ src: "/logo/icon.webp" },
+		{ src: "/assets/home/home.png" },
 	],
 });
 

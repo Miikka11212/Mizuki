@@ -4,6 +4,7 @@ import WidgetLayout from "@components/molecules/WidgetLayout.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { resolveImageAsset } from "@utils/asset-utils";
+import { url } from "@utils/url-utils";
 import stylus from "stylus";
 import { musicConfig, resolveMusicOptions } from "@/config/musicConfig";
 import { musicTracks } from "@/data/music";
@@ -34,9 +35,14 @@ const optimizedOptions = options
 			playlist: await Promise.all(
 				options.playlist.map(async (track) => {
 					const configuredCover = configuredCovers.get(track.id) ?? track.cover;
-					if (!configuredCover) return track;
+					const localUrl = (value: string) =>
+						value.startsWith("/") && !value.startsWith("//") ? url(value) : value;
+					const resolvedTrack = { ...track, source: localUrl(track.source) };
+					if (!configuredCover) return resolvedTrack;
 					const asset = await resolveImageAsset(configuredCover);
-					if (typeof asset === "string") return track;
+					if (typeof asset === "string") {
+						return { ...resolvedTrack, cover: localUrl(asset) };
+					}
 					const widths = [64, 128].filter((width) => width <= asset.width);
 					if (!widths.length) widths.push(asset.width);
 					const candidates = await Promise.all(
@@ -51,7 +57,7 @@ const optimizedOptions = options
 						})),
 					);
 					return {
-						...track,
+						...resolvedTrack,
 						cover: candidates.at(-1)?.image.src ?? asset.src,
 						coverSrcset: candidates
 							.map(({ image, width }) => `${image.src} ${width}w`)

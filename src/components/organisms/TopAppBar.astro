@@ -11,7 +11,7 @@ import { i18n } from "@i18n/translation";
 import Icon from "@iconify/svelte";
 import { resolveNavBarLinks, resolvePageKey } from "@utils/nav-utils";
 import { url } from "@utils/url-utils";
-import { siteConfig } from "@/config";
+import { profileConfig, siteConfig } from "@/config";
 import { navBarConfig } from "@/config/navBarConfig";
 import DisplaySettings from "./DisplaySettings.svelte";
 import LightDarkSwitch from "./LightDarkSwitch.svelte";
@@ -48,8 +48,8 @@ function isActive(link: (typeof links)[number]): boolean {
 			href={url("/")}
 			class="group flex h-10 items-center gap-2 px-2 text-[var(--on-surface)] transition whitespace-nowrap"
 		>
-			<span class="h-5 w-1 rounded-full bg-[var(--primary)] transition-all group-hover:h-7"></span>
-			<span class="text-lg font-bold group-hover:text-[var(--primary)]">{siteConfig.title}</span>
+			<img src={url("/assets/home/home.png")} alt="" width="24" height="24" class="object-contain" />
+			<span class="text-lg font-bold group-hover:text-[var(--primary)]">{profileConfig.name}</span>
 		</a>
 		<nav class:list={["top-app-bar__nav hidden h-full items-center gap-1 lg:flex", siteConfig.topAppBar.contentAlign === "center" ? "lg:absolute lg:left-1/2 lg:-translate-x-1/2" : "ml-4"]} aria-label={i18n(I18nKey.mainNavigation)}>
 			{links.map((link) => {

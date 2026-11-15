@@ -1,0 +1,104 @@
+---
+import { url } from "@utils/url-utils";
+
+const config = {
+	model: {
+		path: url("/pio/models/NOIR/noir.model3.json"),
+		tips: {
+			welcomeMessage: ["Welcome to Miikka's Website!"],
+			messages: [
+				"What are you doing?",
+				"Stop touching me!",
+				"HENTAI!",
+				"Don't bully me like that!",
+			],
+		},
+	},
+	position: "bottom-left",
+	size: 280,
+	transitionDuration: 1500,
+	transitionType: "slide",
+	_hideAbout: false,
+};
+---
+
+<iframe
+	id="site-live2d"
+	title="Live2D"
+	data-src={url("/pio/live2d-host.html")}
+	data-home={url("/")}
+	data-config={JSON.stringify(config)}
+></iframe>
+
+<script>
+	const frame = document.querySelector<HTMLIFrameElement>("#site-live2d");
+
+	if (frame) {
+		const desktop = window.matchMedia("(min-width: 1281px)");
+		const origin = window.location.origin;
+		const config = JSON.parse(frame.dataset.config ?? "{}");
+
+		function loadFrame() {
+			const src = frame?.dataset.src;
+			if (frame && src && desktop.matches && !frame.hasAttribute("src")) {
+				frame.src = src;
+			}
+		}
+
+		window.addEventListener("message", (event) => {
+			if (event.origin !== origin || event.source !== frame.contentWindow) return;
+			const message = event.data;
+			if (message?.type === "l2d-loaded") {
+				const height = Number(message.contentHeight);
+				if (Number.isFinite(height) && height > 0) {
+					frame.style.height = Math.min(600, height) + "px";
+				}
+				frame.dataset.loaded = "true";
+			}
+			if (message?.type === "l2d-action" && message.action === "home") {
+				window.location.assign(frame.dataset.home ?? "/");
+			}
+			if (message?.type === "l2d-action" && message.action === "scrollToTop") {
+				const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+				window.scrollTo({ top: 0, behavior: reduced ? "instant" : "smooth" });
+			}
+		});
+
+		frame.addEventListener("load", () => {
+			frame.contentWindow?.postMessage({ type: "l2d-init", config }, origin);
+		});
+		desktop.addEventListener("change", loadFrame);
+		if ("requestIdleCallback" in window) {
+			window.requestIdleCallback(loadFrame, { timeout: 2000 });
+		} else {
+			setTimeout(loadFrame, 500);
+		}
+	}
+</script>
+
+<style>
+	iframe {
+		display: none;
+		position: fixed;
+		z-index: 999;
+		inset: auto auto 0 0;
+		width: 280px;
+		height: 600px;
+		max-height: 100vh;
+		border: 0;
+		visibility: hidden;
+		pointer-events: none;
+	}
+
+	@media (min-width: 1281px) {
+		iframe[data-loaded="true"] {
+			display: block;
+			visibility: visible;
+			pointer-events: auto;
+		}
+
+		iframe[src] {
+			display: block;
+		}
+	}
+</style>

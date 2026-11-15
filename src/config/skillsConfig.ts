@@ -19,17 +19,22 @@ export const skillsConfig: SkillsConfig = withUserConfig("skills", {
 		{
 			key: "frontend",
 			label: "Frontend",
-			icon: "material-symbols:web-rounded",
 		},
 		{
 			key: "backend",
 			label: "Backend",
-			icon: "material-symbols:dns-rounded",
 		},
 		{
-			key: "tooling",
-			label: "Tooling",
-			icon: "material-symbols:construction-rounded",
+			key: "database",
+			label: "Database",
+		},
+		{
+			key: "tools",
+			label: "Tools",
+		},
+		{
+			key: "other",
+			label: "Other",
 		},
 	],
 	// disabledNames: [],

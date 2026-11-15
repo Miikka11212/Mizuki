@@ -12,33 +12,17 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * 注：设备的具体清单数据（设备名、品牌、规格、感受说明、图片等）请在 `src/data/devices.ts` 中维护。
  */
 export const devicesConfig: DevicesConfig = withUserConfig("devices", {
-	enable: true,
+	enable: false,
 	title: "$t:devices",
 	description: "$t:devicesBanner",
 	categories: [
 		{
-			key: "desk",
-			label: "Desk Setup",
-			icon: "material-symbols:desktop-windows-outline-rounded",
-			description: "Workstation & home office hardware",
+			key: "OnePlus",
+			label: "OnePlus",
 		},
 		{
-			key: "mobile",
-			label: "Mobile & EDC",
-			icon: "material-symbols:phone-iphone",
-			description: "Daily portable devices & smart gadgets",
-		},
-		{
-			key: "audio",
-			label: "Audio & Visual",
-			icon: "material-symbols:headphones-rounded",
-			description: "Headphones, speakers & monitoring gears",
-		},
-		{
-			key: "peripheral",
-			label: "Peripherals",
-			icon: "material-symbols:keyboard-outline-rounded",
-			description: "Keyboards, mice & desk accessories",
+			key: "Router",
+			label: "Router",
 		},
 	],
 	// disabledIds: [],

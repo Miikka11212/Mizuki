@@ -2,7 +2,7 @@
 title: 对你的回忆
 published: 2026-07-25
 pinned: false
-description: 在广州写下的
+description: 在某个炙热的城市写下的
 tags: [Chinese, Article, Writing]
 category: Articles
 licenseName: "Unlicensed"
@@ -36,8 +36,8 @@ draft: false
 
 我抬头望向天空，任由雨落在我的脸上。
 
-> “我爱你。”
+>我爱你。
 
 我这样告诉自己。
 
-> “我真的，爱过你。”
+> 我真的，爱过你。

@@ -50,7 +50,7 @@ export const fontConfig: FontConfig = withUserConfig("font", {
 	 */
 	fontFamilies: [
 		// ---------------------------------------------------------------------
-		// 1. 正文字体（现代几何圆润西文字体 Outfit，与 M3E 大圆角及悠哉圆体绝配）
+		// 1. 正文字体（现代几何圆润西文字体 Outfit，）
 		// ---------------------------------------------------------------------
 		{
 			id: "outfit-body",
@@ -80,17 +80,17 @@ export const fontConfig: FontConfig = withUserConfig("font", {
 		},
 
 		// ---------------------------------------------------------------------
-		// 2. 中文 / 日文 CJK 字体（悠哉圆体 Yozai Medium，全量简繁中日韩 100% 覆盖）
+		// 2. 中文 / 日文 CJK 字体（霞鹜 975 圆体 SC）
 		// ---------------------------------------------------------------------
 		{
-			id: "yozai-cjk",
-			family: "Yozai Medium",
+			id: "lxgw-975-yuan-sc",
+			family: "LXGW 975 Yuan SC",
 			role: "cjk",
 			source: "local",
 			variants: [
 				{
-					file: "src/assets/fonts/Yozai-Medium.ttf",
-					weight: 500,
+					file: "src/assets/fonts/LXGW975YuanSC-400W.ttf",
+					weight: 400,
 					style: "normal",
 				},
 			],

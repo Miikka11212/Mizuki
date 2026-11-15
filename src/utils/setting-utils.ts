@@ -12,7 +12,11 @@ import {
 	WALLPAPER_MODE_KEY,
 } from "@constants/constants.ts";
 import { applyCurrentScheme } from "@utils/theme-utils";
-import { expressiveCodeConfig, siteConfig } from "@/config";
+import {
+	expressiveCodeConfig,
+	resolveDisplaySettings,
+	siteConfig,
+} from "@/config";
 import type { LIGHT_DARK_MODE, WallpaperMode } from "@/types/config";
 import type { TexturePreset } from "@/types/textureConfig";
 
@@ -98,6 +102,7 @@ export function getDefaultWallpaperMode(): WallpaperMode {
 }
 
 export function getStoredWallpaperMode(): WallpaperMode {
+	if (!resolveDisplaySettings().wallpaperMode) return getDefaultWallpaperMode();
 	const value = localStorage.getItem(WALLPAPER_MODE_KEY);
 	return isWallpaperMode(value) ? value : getDefaultWallpaperMode();
 }

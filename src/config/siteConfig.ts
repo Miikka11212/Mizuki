@@ -22,7 +22,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	displaySettings: {
 		colorStyle: true, // 是否展示配色风格 9 宫格
 		colorSpec: true, // 是否展示 Color Spec 调色规范切换
-		wallpaperMode: true, // 是否展示页面背景（纯色/横幅）切换
+		wallpaperMode: false, // 是否展示页面背景（纯色/横幅）切换
 		layoutMode: true, // 是否展示文章列表布局（列表/网格）切换
 		reduceMotion: true, // 是否展示减少动效切换
 		texture: true, // 是否展示背景纹理选择
@@ -42,7 +42,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	// 默认页面背景模式："banner" 使用壁纸横幅，"none" 使用主题纯色。
 	// 访客在“显示设置”中的选择会保存在浏览器中，并覆盖这里的默认值。
 	wallpaperMode: {
-		defaultMode: "banner",
+		defaultMode: "none",
 	},
 	// 页面背景纹理系统配置（5 大精美预设 + 零开销 HCT 动态取色）
 	texture: {
@@ -56,26 +56,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		// 以 "/" 开头的 public 路径与远程 URL 仍可用，但会保留原图、不生成候选。
 		// desktop 用于 >= 1024px；mobile 仅用于 < 1024px 的首页，手机非首页不显示壁纸。
 		// 数组顺序就是轮播顺序；只需要静态 Banner 时，每组保留一张图片即可。
-		src: {
-			desktop: [
-				"/assets/desktop-banner/a1.jpg",
-				"/assets/desktop-banner/a2.jpg",
-				"/assets/desktop-banner/a3.jpg",
-				"/assets/desktop-banner/d1.webp",
-				"/assets/desktop-banner/d2.webp",
-				"/assets/desktop-banner/d3.webp",
-			],
-			mobile: [
-				"/assets/mobile-banner/m1.webp",
-				"/assets/mobile-banner/m2.webp",
-				"/assets/mobile-banner/m3.webp",
-				"/assets/mobile-banner/m4.webp",
-				"/assets/mobile-banner/m5.webp",
-				"/assets/mobile-banner/m6.webp",
-				"/assets/mobile-banner/m7.webp",
-				"/assets/mobile-banner/m8.webp",
-			],
-		},
+		src: { desktop: [], mobile: [] },
 		// 图片裁切焦点："top"、"center" 或 "bottom"。
 		position: "center",
 		dim: {
@@ -130,7 +111,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 	},
 	favicon: [
 		// 浏览器标签页图标，路径相对于 public 目录。
-		{ src: "/assets/home/home.png" },
+		{ src: "/favicon.ico", sizes: "16x16 32x32 48x48" },
 	],
 });
 

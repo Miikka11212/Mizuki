@@ -17,7 +17,7 @@ import {
 	isDualColumn,
 } from "@utils/responsive-utils";
 import type { MarkdownHeading } from "astro";
-import { contextMenuConfig, sidebarConfig } from "@/config";
+import { contextMenuConfig, resolveDisplaySettings, sidebarConfig, siteConfig } from "@/config";
 import type { SidebarPage } from "@/types/sidebarConfig";
 import Layout from "./Layout.astro";
 
@@ -53,6 +53,10 @@ const {
 	page,
 	hasComments,
 } = Astro.props;
+
+const showBanner =
+	siteConfig.wallpaperMode.defaultMode === "banner" ||
+	resolveDisplaySettings().wallpaperMode;
 
 // 响应式侧栏配置（数据驱动布局）
 const sidebarResponsive = getResponsiveSidebarConfig();
@@ -94,8 +98,7 @@ const hasTocWidget =
     </div>
 </header>
 
-<!-- Banner -->
-<BannerStage page={page} title={title} description={description} date={bannerDate} />
+{showBanner && <BannerStage page={page} title={title} description={description} date={bannerDate} />}
 
 <!-- Main content -->
 <div id="main-layout" class="absolute w-full z-30 pointer-events-none">
@@ -124,6 +127,7 @@ const hasTocWidget =
                     <div id="content-wrapper" class="onload-animation">
                         <!-- the overflow-hidden here prevent long text break the layout-->
                         <!-- make id different from windows.swup global property -->
+                        {page === "home" && !showBanner && <h1 class="sr-only">{siteConfig.title}</h1>}
                         <slot></slot>
                         <div class="footer col-span-2 onload-animation hidden lg:block">
                             <Footer></Footer>

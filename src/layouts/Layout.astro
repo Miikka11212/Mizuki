@@ -1,5 +1,4 @@
 ---
-import LegacyWallpaper from "@components/organisms/LegacyWallpaper.astro";
 import Live2D from "@components/organisms/Live2D.astro";
 import { Font } from "astro:assets";
 import Snackbar from "@components/atoms/overlay/Snackbar.svelte";
@@ -11,6 +10,7 @@ import { pathsEqual, toAbsoluteUrl, url } from "@utils/url-utils";
 import {
 	expressiveCodeConfig,
 	profileConfig,
+	resolveDisplaySettings,
 	resolvedFontOptions,
 	resolveTextureOptions,
 	resolveUmamiOptions,
@@ -88,6 +88,7 @@ const lightTheme =
 	expressiveCodeConfig.lightTheme ?? expressiveCodeConfig.theme;
 const darkTheme = expressiveCodeConfig.darkTheme ?? expressiveCodeConfig.theme;
 const defaultWallpaperMode = siteConfig.wallpaperMode.defaultMode;
+const allowWallpaperSwitch = resolveDisplaySettings().wallpaperMode;
 const textureOptions = resolveTextureOptions();
 const defaultTexturePreset = textureOptions.defaultPreset;
 const defaultTextureOpacity = textureOptions.defaultOpacity;
@@ -166,7 +167,7 @@ const defaultSchemeStyle = createDefaultSchemeStyle();
 			/>
 		))}
 
-		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, configHue, lightTheme, darkTheme, defaultWallpaperMode, defaultTexturePreset, defaultTextureOpacity, textureEnabled}}>
+		<script is:inline define:vars={{DEFAULT_THEME, LIGHT_MODE, DARK_MODE, AUTO_MODE, BANNER_HEIGHT_EXTEND, configHue, lightTheme, darkTheme, defaultWallpaperMode, allowWallpaperSwitch, defaultTexturePreset, defaultTextureOpacity, textureEnabled}}>
 			const theme = localStorage.getItem('theme') || DEFAULT_THEME;
 			let isDark = false;
 			switch (theme) {
@@ -192,7 +193,7 @@ const defaultSchemeStyle = createDefaultSchemeStyle();
 			if (localStorage.getItem('mc-motion') === 'reduced') {
 				document.documentElement.classList.add('motion-reduced');
 			}
-			const storedWallpaperMode = localStorage.getItem('wallpaper-mode');
+			const storedWallpaperMode = allowWallpaperSwitch ? localStorage.getItem('wallpaper-mode') : null;
 			const wallpaperMode = storedWallpaperMode === 'banner' || storedWallpaperMode === 'none'
 				? storedWallpaperMode
 				: defaultWallpaperMode;
@@ -235,7 +236,6 @@ const defaultSchemeStyle = createDefaultSchemeStyle();
 		data-banner-has-mobile={String(hasMobileBanner)}
 	>
 		<ConfigCarrier></ConfigCarrier>
-		<LegacyWallpaper />
 		<Live2D />
 		{umamiOptions && <UmamiRuntime />}
 		{textureEnabled && (

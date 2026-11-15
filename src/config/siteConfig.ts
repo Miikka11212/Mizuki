@@ -10,8 +10,8 @@ import { withUserConfig } from "../utils/config-overlay.ts";
  * 类型见 src/types/config.ts。
  */
 export const siteConfig: SiteConfig = withUserConfig("site", {
-	site: "https://Miikka11212.github.io/Mizuki/",
-	base: "/Mizuki",
+	site: "https://mizuki-miikkas-projects-5491912b.vercel.app/",
+	base: "/",
 	title: "Miikka's Archive",
 	subtitle: "Welcome to Miikka's Archive",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。

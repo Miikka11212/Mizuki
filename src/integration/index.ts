@@ -360,7 +360,11 @@ export function shirones(options: ShironesOptions = {}): AstroIntegration {
 				// during resolveConfig, before this hook. See the comment on
 				// IMAGE_ENDPOINT_ROUTE in src/config/integrationsConfig.ts.
 				updateConfig({
-					...(siteConfig?.site ? { site: siteConfig.site } : {}),
+					...(process.env.VERCEL_PROJECT_PRODUCTION_URL
+						? { site: "https://" + process.env.VERCEL_PROJECT_PRODUCTION_URL }
+						: siteConfig?.site
+							? { site: siteConfig.site }
+							: {}),
 					base: siteConfig?.base ?? "/",
 					trailingSlash: TRAILING_SLASH,
 					image: { endpoint: { route: IMAGE_ENDPOINT_ROUTE } },

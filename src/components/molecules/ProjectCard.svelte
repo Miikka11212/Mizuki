@@ -136,7 +136,7 @@ const showCover = $derived(Boolean(project.cover) && !coverFailed);
 					</a>
 				{/if}
 				{#if project.repository}
-					<a href={project.repository} target="_blank" rel="noopener noreferrer">
+					<a class:repository-card-link={!project.website} aria-label={project.website ? undefined : project.title + " · " + i18n(I18nKey.projectSource)} href={project.repository} target="_blank" rel="noopener noreferrer">
 						<Icon icon="fa7-brands:github" aria-hidden="true" />
 						{i18n(I18nKey.projectSource)}
 					</a>
@@ -438,4 +438,17 @@ const showCover = $derived(Boolean(project.cover) && !coverFailed);
 			> :global(svg)
 				width: 1rem
 				height: 1rem
+// Extend the sole repository link across the card, including its title and summary.
+.project-card__actions a.repository-card-link
+	&::after
+		content: ""
+		position: absolute
+		inset: 0
+
+	&:hover
+		transform: none
+
+.project-card:has(.repository-card-link:focus-visible)
+	outline: 2px solid var(--primary)
+	outline-offset: 2px
 </style>

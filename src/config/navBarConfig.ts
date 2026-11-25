@@ -141,6 +141,7 @@ const defaultNavBarConfig: NavBarConfig = {
 	links: [
 		LinkPresets.Home,
 		LinkPresets.Archive,
+		LinkPresets.Projects,
 		LinkPresets.Albums,
 
 		{

@@ -39,6 +39,12 @@ const config = {
 		const config = JSON.parse(frame.dataset.config ?? "{}");
 
 		function loadFrame() {
+			const page = document.querySelector<HTMLElement>("#swup-container")?.dataset.currentPage;
+			if (frame && page === "home") {
+				frame.removeAttribute("src");
+				delete frame.dataset.loaded;
+				return;
+			}
 			const src = frame?.dataset.src;
 			if (frame && src && desktop.matches && !frame.hasAttribute("src")) {
 				frame.src = src;
@@ -67,6 +73,7 @@ const config = {
 		frame.addEventListener("load", () => {
 			frame.contentWindow?.postMessage({ type: "l2d-init", config }, origin);
 		});
+		document.addEventListener("swup:page:view", loadFrame);
 		desktop.addEventListener("change", loadFrame);
 		if ("requestIdleCallback" in window) {
 			window.requestIdleCallback(loadFrame, { timeout: 2000 });
